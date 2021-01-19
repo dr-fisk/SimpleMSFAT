@@ -1,2 +1,2 @@
 # SimpleMSFAT
-Implemented a simple Filesystem similar to MS-FAT. The application allows for reading and writing files into a virtual disk.
+Each datablock is 4KiB in size. The root directory allows for 128 files to be store. After this, the disk will refuse to add any more files. However, if there is still space within the disk, the file system will allow data to be written up until there are no more free data blocks or when no more space within data blocks is left. The program allows for the creation of file descriptors, up to 32 unique file descriptors. The superblock is always index 0 of the disk. Then it is followed by the fat blocks, then the root block, and finally all the data blocks. There exists an ls functionality, which prints out the files in the directory.
