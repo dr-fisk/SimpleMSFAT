@@ -11,16 +11,13 @@ endif
 
 all: $(LIB)
 
-#DEPS = $(patsubst %.o, %.d, $(OBJS))
-#-include $(DEPS)
+$(LIB): $(OBJS)
+	@echo "CC $@"
+	$(Q)ar rcs $@ $^
 
 %.o: %.c
 	@echo "CC $@"
 	$(Q)$(CC) $(CFLAGS) -c $<
-
-%.a: $(OBJS)
-	@echo "CC $@"
-	$(Q)ar rcs $@ $^
 
 clean:
 	@echo "CLEAN"
